@@ -1,5 +1,5 @@
 # Meghdutam
-[![Gem Version](https://badge.fury.io/rb/ridley.png)](http://badge.fury.io/rb/meghadtam)
+[![Gem Version](https://badge.fury.io/rb/meghadtam.png)](http://badge.fury.io/rb/meghadtam)
 [![Build Status](https://secure.travis-ci.org/reset/meghadtam.png?branch=master)](http://travis-ci.org/reset/meghadtam)
 [![Dependency Status](https://gemnasium.com/reset/meghadtam.png?travis)](https://gemnasium.com/reset/meghadtam)
 [![Code Climate](https://codeclimate.com/github/reset/meghadtam.png)](https://codeclimate.com/github/reset/meghadtam)
