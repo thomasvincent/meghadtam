@@ -1,0 +1,41 @@
+sudo: false
+language: ruby
+addons:
+  apt:
+    packages:
+      - git
+      - graphviz
+      - libarchive12
+      - libarchive-dev
+      - libgecode-dev
+cache:
+  - apt
+  - bundler
+dist: precise
+
+script: "bundle exec thor spec:$TEST_SUITE"
+before_install:
+  - gem update --system
+  - gem install bundler
+env:
+  - TEST_SUITE=unit
+  - TEST_SUITE=acceptance
+rvm:
+  - 1.9
+  - 2.0
+  - 2.1
+#  - jruby-19mode
+matrix:
+  # allow_failures:
+  #   - rvm: jruby-19mode
+  include:
+    # Test against master of berkshelf
+    - rvm: 2.2
+      gemfile: berkshelf/Gemfile
+      before_install:
+        - gem update --system
+        - gem install bundler
+        - echo "gem 'meghadtam', :path => '..'" >> Gemfile
+      install: bundle install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
+      env:
+      script: bundle exec thor spec:ci
